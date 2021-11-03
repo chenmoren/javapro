@@ -54,9 +54,12 @@ public class Demo {
 
         //three way
         MyThread2 myThread2 = new MyThread2();
-        FutureTask futureTask = new FutureTask(myThread2);
+        FutureTask futureTask = new FutureTask(myThread2);   //增加线程需要新创建FutureTask对象
+        FutureTask futureTask1 = new FutureTask(myThread2);
         Thread t3 = new Thread(futureTask);
         t3.start();
+        Thread t4 = new Thread(futureTask1);
+        t4.start();
         System.out.println((String) futureTask.get());
     }
 }
